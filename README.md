@@ -17,3 +17,15 @@
 
 ![](img/install_location.jpg)
 
+## フォルダ構成
+
+それぞれのフォルダの構成は、以下のような使用を想定しています（今後変更する可能性もあり）。
+
+- asssignment : 課題の提出用フォルダ
+- docs : 授業で使用したスライドや書類を格納
+- example : 授業で使用したサンプルプログラムを収録
+- mySketch : 授業内でのプログラムの作成やスケッチ用
+
+## License
+
+[The MIT License (MIT)](http://opensource.org/licenses/mit-license.php)
