@@ -5,17 +5,21 @@ void ofApp::setup(){
     ofBackground(0);
     ofSetFrameRate(60);
     ofSetCircleResolution(64);
+    position.x = ofRandom(ofGetWidth());
+    position.y = ofRandom(ofGetHeight());
+    velocity.x = ofRandom(-5, 5);
+    velocity.y = ofRandom(-5, 5);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    position += velocity;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(255);
-    ofCircle(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()), 20);
+    ofCircle(position.x, position.y, 20);
 }
 
 //--------------------------------------------------------------
