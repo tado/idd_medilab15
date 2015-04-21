@@ -6,7 +6,8 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofSetCircleResolution(24);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
-    float speed = 3;
+    ofEnableDepthTest();
+    float speed = 5;
     for (int i = 0; i < num; i++){
         position[i].x = ofRandom(ofGetWidth());
         position[i].y = ofRandom(ofGetHeight());
@@ -30,7 +31,7 @@ void ofApp::update(){
         if (position[i].y < 0 || position[i].y > ofGetHeight()) {
             velocity[i].y *= -1;
         }
-        if (position[i].z < -400 || position[i].z > 400) {
+        if (position[i].z < 0 || position[i].z > ofGetHeight()) {
             velocity[i].z *= -1;
         }
     }
@@ -42,6 +43,7 @@ void ofApp::draw(){
         ofSetColor(color[i]);
         ofCircle(position[i].x, position[i].y, position[i].z, 8);
     }
+    ofSetColor(255);
     ofDrawBitmapString(ofToString(ofGetFrameRate()), 20, 20);
 }
 
