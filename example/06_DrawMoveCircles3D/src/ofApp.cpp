@@ -4,15 +4,16 @@
 void ofApp::setup(){
     ofBackground(0);
     ofSetFrameRate(60);
-    ofSetCircleResolution(12);
+    ofSetCircleResolution(24);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    float speed = 3;
     for (int i = 0; i < num; i++){
         position[i].x = ofRandom(ofGetWidth());
         position[i].y = ofRandom(ofGetHeight());
         position[i].z = ofRandom(ofGetHeight());
-        velocity[i].x = ofRandom(-1, 1);
-        velocity[i].y = ofRandom(-1, 1);
-        velocity[i].z = ofRandom(-1, 1);
+        velocity[i].x = ofRandom(-speed, speed);
+        velocity[i].y = ofRandom(-speed, speed);
+        velocity[i].z = ofRandom(-speed, speed);
         color[i].r = ofRandom(255);
         color[i].g = ofRandom(255);
         color[i].b = ofRandom(255);
@@ -29,7 +30,7 @@ void ofApp::update(){
         if (position[i].y < 0 || position[i].y > ofGetHeight()) {
             velocity[i].y *= -1;
         }
-        if (position[i].z < -100 || position[i].z > 100) {
+        if (position[i].z < -400 || position[i].z > 400) {
             velocity[i].z *= -1;
         }
     }
