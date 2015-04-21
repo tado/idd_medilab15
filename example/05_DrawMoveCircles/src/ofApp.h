@@ -19,6 +19,12 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    // 円の位置
-    ofVec2f position;    
+    // アニメーションする円の数を指定
+    static const int CIRCLE_NUM = 100;
+    
+    // 位置
+    ofVec2f position[CIRCLE_NUM];
+    
+    // 速度
+    ofVec2f velocity[CIRCLE_NUM];
 };

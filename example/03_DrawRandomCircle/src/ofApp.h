@@ -19,6 +19,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    // 円の位置
-    ofVec2f position;    
+    
+    // 位置の配列を生成
+    ofVec2f position;
 };
