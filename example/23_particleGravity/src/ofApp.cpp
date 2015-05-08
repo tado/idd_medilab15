@@ -8,6 +8,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    particle.addForce(0, 1.0);
     particle.update();
 }
 
@@ -45,7 +46,7 @@ void ofApp::mousePressed(int x, int y, int button){
 void ofApp::mouseReleased(int x, int y, int button){
     particle.position = ofVec2f(x, y);
     particle.velocity = ofVec2f(0, 0);
-    particle.acceleration = ofVec2f(ofRandom(-10, 10), ofRandom(-10, 10));
+    particle.addForce(ofRandom(-10, 10), ofRandom(-20, 0));
 }
 
 //--------------------------------------------------------------

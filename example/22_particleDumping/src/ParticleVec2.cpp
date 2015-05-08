@@ -2,6 +2,7 @@
 
 ParticleVec2::ParticleVec2(){
     radius = 5.0;
+    friction = 0.01;
     mass = 1.0;
     position = ofVec2f(ofGetWidth()/2.0, ofGetHeight()/2.0);
     velocity = ofVec2f(0, 0);
@@ -17,6 +18,7 @@ void ParticleVec2::setup(float positionX, float positionY, float velocityX, floa
 }
 
 void ParticleVec2::update(){
+    acceleration -= velocity * friction;
     velocity += acceleration;
     position += velocity;
     acceleration.set(0, 0);
