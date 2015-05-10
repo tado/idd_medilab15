@@ -20,5 +20,5 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    ParticleVec2 particle;
+    ParticleVec2 particle; // インスタンス化
 };

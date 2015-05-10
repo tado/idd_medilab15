@@ -5,16 +5,14 @@ class ParticleVec2 {
     
 public:
     ParticleVec2();
-    void setup(ofVec2f position, ofVec2f velocity);
-    void setup(float positionX, float positionY, float velocityX, float velocityY);
     void update();
     void draw();
     
     void addForce(ofVec2f force);
     void addForce(float forceX, float forceY);
     
-    void bounceOffWalls();
-    void throughOfWalls();
+    void bounceOffWalls(); // 壁で跳ね返る
+    void throughOffWalls(); // 反対側に突き抜ける
     
     ofVec2f position;
     ofVec2f velocity;
@@ -22,4 +20,5 @@ public:
     float friction;
     float radius;
     float mass;
+    float maxx, maxy, minx, miny; // 枠の範囲
 };

@@ -5,7 +5,7 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
     mesh.setMode(OF_PRIMITIVE_LINES);
-    //mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
+    // mesh.setMode(OF_PRIMITIVE_LINE_STRIP);
 }
 
 //--------------------------------------------------------------

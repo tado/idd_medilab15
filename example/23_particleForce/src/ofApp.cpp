@@ -4,44 +4,32 @@
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
-    mesh.setMode(OF_PRIMITIVE_POINTS);
-    pressed = false;
-    for (int i = 0; i < num; i++) {
-        particles[i].position = ofVec2f(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
-    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    mesh.clear();
-    for (int i = 0; i < num; i++) {
-        if (pressed) {
-            particles[i].addAttractionForce(mouseX, mouseY, 1000, 1.0);
-        }
-        particles[i].update();
-        particles[i].throughOfWalls();
-        mesh.addVertex(ofVec3f(particles[i].position.x, particles[i].position.y));
-    }
+    particle.addForce(0, 1.0); // 下向きの力を加える(重力)
+    particle.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    mesh.draw();
+    particle.draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    
+
 }
 
 //--------------------------------------------------------------
@@ -51,25 +39,27 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    pressed = true;
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    pressed = false;
+    particle.position = ofVec2f(x, y);
+    particle.velocity = ofVec2f(0, 0);
+    particle.addForce(ofRandom(-10, 10), ofRandom(-20, 0));
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
-    
+
 }

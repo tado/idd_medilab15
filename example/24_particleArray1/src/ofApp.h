@@ -20,6 +20,6 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    static const int num = 1000;
-    ParticleVec2 particles[num];
+    static const int num = 1000; // 物体の数
+    ParticleVec2 particles[num]; // 配列を生成
 };

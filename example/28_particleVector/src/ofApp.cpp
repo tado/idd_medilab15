@@ -25,6 +25,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    // キー入力で全消去
     particles.clear();
 }
 
@@ -40,13 +41,16 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
+    // 一度に100個ずつ生成
     for (int i = 0; i < 100; i++) {
+        // まずテンポラリーなオブジェクトを生成して初期設定する
         ParticleVec2 p;
         p.position = ofVec2f(x, y);
         float length = ofRandom(2.0);
         float angle = ofRandom(2.0 * PI);
         ofVec2f velocity = ofVec2f(length * cos(angle), length * sin(angle));
         p.velocity = velocity;
+        // 生成したオブジェクトを可変長配列の末尾に追加
         particles.push_back(p);
     }
 }

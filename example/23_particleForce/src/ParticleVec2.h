@@ -5,18 +5,17 @@ class ParticleVec2 {
     
 public:
     ParticleVec2();
-    void setup(ofVec2f position, ofVec2f velocity);
-    void setup(float positionX, float positionY, float velocityX, float velocityY);
     void update();
     void draw();
 
+    // 物体に力を加える（ベクトル版とX,Y版）
     void addForce(ofVec2f force);
     void addForce(float forceX, float forceY);
     
     ofVec2f position;
     ofVec2f velocity;
     ofVec2f acceleration;
-    float friction;
     float radius;
-    float mass;
+    float friction;
+    float mass; // 質量
 };

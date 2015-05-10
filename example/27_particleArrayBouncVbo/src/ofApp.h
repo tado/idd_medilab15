@@ -22,5 +22,5 @@ public:
     
     static const int num = 10000;
     ParticleVec2 particles[num];
-    ofVboMesh mesh;
+    ofVboMesh mesh; // VBOを使用したメッシュで描画を高速化
 };

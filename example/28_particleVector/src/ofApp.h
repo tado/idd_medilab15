@@ -21,6 +21,6 @@ public:
     void gotMessage(ofMessage msg);
     
     static const int num = 10000;
-    vector<ParticleVec2> particles;
+    vector<ParticleVec2> particles; // 可変長配列
     ofVboMesh mesh;
 };

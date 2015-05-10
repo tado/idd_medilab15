@@ -8,15 +8,6 @@ ParticleVec2::ParticleVec2(){
     velocity = ofVec2f(0, 0);
 }
 
-void ParticleVec2::setup(ofVec2f _position, ofVec2f _velocity){
-    position = _position;
-    velocity = _velocity;
-}
-void ParticleVec2::setup(float positionX, float positionY, float velocityX, float velocityY){
-    position = ofVec2f(positionX, positionY);
-    velocity = ofVec2f(velocityX, velocityY);
-}
-
 void ParticleVec2::update(){
     acceleration -= velocity * friction;
     velocity += acceleration;
@@ -28,9 +19,10 @@ void ParticleVec2::draw(){
     ofCircle(position.x, position.y, radius);
 }
 
-void ParticleVec2::addForce(ofVec2f _force){
-    acceleration += _force / mass;
+void ParticleVec2::addForce(ofVec2f force){
+    acceleration += force / mass; // a = F/m
 }
+
 void ParticleVec2::addForce(float forceX, float forceY){
-    acceleration += ofVec2f(forceX, forceY) / mass;
+    acceleration += ofVec2f(forceX, forceY) / mass; // a = F/m
 }

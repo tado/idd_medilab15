@@ -4,15 +4,12 @@
 class ParticleVec2 {
     
 public:
-    ParticleVec2();
-    void setup(ofVec2f position, ofVec2f velocity);
-    void setup(float positionX, float positionY, float velocityX, float velocityY);
+    ParticleVec2(); //コンストラクタ
     void update();
     void draw();
     
-    ofVec2f position;
-    ofVec2f velocity;
-    ofVec2f acceleration;
-    float radius;
-    float mass;
+    ofVec2f position; //位置
+    ofVec2f velocity; // 速度
+    ofVec2f acceleration; // 加速度
+    float radius; // 表示する円の半径
 };

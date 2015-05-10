@@ -5,8 +5,6 @@ class ParticleVec2 {
     
 public:
     ParticleVec2();
-    void setup(ofVec2f position, ofVec2f velocity);
-    void setup(float positionX, float positionY, float velocityX, float velocityY);
     void update();
     void draw();
     

@@ -1,23 +1,14 @@
 #include "ParticleVec2.h"
 
 ParticleVec2::ParticleVec2(){
+    friction = 0.01; // 摩擦力の初期設定
     radius = 5.0;
-    friction = 0.01;
-    mass = 1.0;
     position = ofVec2f(ofGetWidth()/2.0, ofGetHeight()/2.0);
     velocity = ofVec2f(0, 0);
 }
 
-void ParticleVec2::setup(ofVec2f _position, ofVec2f _velocity){
-    position = _position;
-    velocity = _velocity;
-}
-void ParticleVec2::setup(float positionX, float positionY, float velocityX, float velocityY){
-    position = ofVec2f(positionX, positionY);
-    velocity = ofVec2f(velocityX, velocityY);
-}
-
 void ParticleVec2::update(){
+    // 速度に比例して摩擦力を算出して加速度を変更
     acceleration -= velocity * friction;
     velocity += acceleration;
     position += velocity;
