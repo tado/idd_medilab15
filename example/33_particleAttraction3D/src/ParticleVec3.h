@@ -5,18 +5,13 @@ class ParticleVec3 {
     
 public:
     ParticleVec3();
-    void setup(ofVec3f position, ofVec3f velocity);
-    void setup(float positionX, float positionY, float positionZ, float velocityX, float velocityY, float velocityZ);
-    void resetForce();
     void addForce(ofVec3f force);
     void addForce(float forceX, float forceY, float forceZ);
-    void updateForce();
-    void updatePos();
     void update();
     void draw();
     
     void bounceOffWalls();
-    void throughOfWalls();
+    void throughOffWalls();
     void resetToRandomPos();
 
     void addRepulsionForce(float x, float y, float z, float radius, float scale);
@@ -33,4 +28,6 @@ public:
     bool bFixed;
     float mass;
     float depth;
+    float minx, miny, minz;
+    float maxx, maxy, maxz;
 };

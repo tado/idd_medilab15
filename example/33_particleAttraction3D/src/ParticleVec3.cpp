@@ -7,15 +7,12 @@ ParticleVec3::ParticleVec3(){
     position.set(ofGetWidth()/2.0, ofGetHeight()/2.0, 0);
     velocity.set(0, 0, 0);
     acceleration.set(0, 0, 0);
-}
-
-void ParticleVec3::setup(ofVec3f _position, ofVec3f _velocity){
-    position = _position;
-    velocity = _velocity;
-}
-void ParticleVec3::setup(float positionX, float positionY, float positionZ, float velocityX, float velocityY, float velocityZ){
-    position = ofVec3f(positionX, positionY, positionZ);
-    velocity = ofVec3f(velocityX, velocityY, velocityZ);
+    minx = 0;
+    miny = 0;
+    minz = -ofGetHeight();
+    maxx = ofGetWidth();
+    maxy = ofGetHeight();
+    maxz = ofGetHeight();
 }
 
 void ParticleVec3::update(){
@@ -37,53 +34,33 @@ void ParticleVec3::addForce(float forceX, float forceY, float forceZ){
 }
 
 void ParticleVec3::bounceOffWalls(){
-    bool bDampedOnCollision = false;
-    bool bDidICollide = false;
-    float minx = 0;
-    float miny = 0;
-    float maxx = ofGetWidth();
-    float maxy = ofGetHeight();
-    float maxz = depth;
-    float minz = -depth;
     if (position.x > maxx){
         position.x = maxx;
         velocity.x *= -1;
-        bDidICollide = true;
-    } else if (position.x < minx){
+    }
+    if (position.x < minx){
         position.x = minx;
         velocity.x *= -1;
-        bDidICollide = true;
     }
     if (position.y > maxy){
         position.y = maxy;
         velocity.y *= -1;
-        bDidICollide = true;
-    } else if (position.y < miny){
+    }
+    if (position.y < miny){
         position.y = miny;
         velocity.y *= -1;
-        bDidICollide = true;
     }
     if (position.z > maxz){
         position.z = maxz;
         velocity.z *= -1;
-        bDidICollide = true;
-    } else if (position.z < minz){
+    }
+    if (position.z < minz){
         position.z = minz;
         velocity.z *= -1;
-        bDidICollide = true;
-    }
-    if (bDidICollide == true && bDampedOnCollision == true){
-        velocity *= 0.3;
     }
 }
 
-void ParticleVec3::throughOfWalls(){
-    float minx = 0;
-    float miny = 0;
-    float maxx = ofGetWidth();
-    float maxy = ofGetHeight();
-    float maxz = depth;
-    float minz = -depth;
+void ParticleVec3::throughOffWalls(){
     if (position.x < minx) {
         position.x = maxx;
     }
