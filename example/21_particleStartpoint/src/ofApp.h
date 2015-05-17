@@ -19,4 +19,15 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+    
+    static const int NUM = 5000;
+    ParticleVec2 particle[NUM];
 };
+
+
+
+
+
+
+
+

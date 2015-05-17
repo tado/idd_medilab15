@@ -20,6 +20,6 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    static const int num = 1000;
+    static const int num = 10000;
     ParticleVec2 particles[num];
 };

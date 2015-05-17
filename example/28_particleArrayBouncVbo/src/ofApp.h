@@ -20,7 +20,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    static const int num = 10000;
+    static const int num = 100000;
     ParticleVec2 particles[num];
     ofVboMesh mesh; // VBOを使用したメッシュで描画を高速化
 };
