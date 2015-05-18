@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxCv.h"
 #include "ofxGui.h"
-#include "Particle.h"
+#include "ParticleVec2.h"
 
 class ofApp : public ofBaseApp {
 public:
@@ -31,7 +31,7 @@ public:
     void resetParticlePressed();
     
     // Particle
-    vector<Particle> particles;
+    vector<ParticleVec2> particles;
     static const int NUM = 20000;
     ofVboMesh mesh;
 };

@@ -9,7 +9,7 @@ void ofApp::setup() {
     ofSetFrameRate(60);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     mesh.setMode(OF_PRIMITIVE_POINTS);
-    glPointSize(3.0);
+    glPointSize(5.0);
     
     // GUI
     resetParticleButton.addListener(this, &ofApp::resetParticlePressed);
@@ -27,17 +27,15 @@ void ofApp::setup() {
     
     //パーティクルを生成
 	for (int i = 0; i < NUM; i++){
-		Particle myParticle;
-        myParticle.friction = 0.005;
-		myParticle.setup(ofVec2f(ofRandom(ofGetWidth()), ofRandom(ofGetHeight())), ofVec2f(0, 0));
+		ParticleVec2 myParticle;
+        myParticle.friction = 0.01;
+        myParticle.position.set(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
 		particles.push_back(myParticle);
 	}
 }
 
 void ofApp::update() {
     camera.update();
-    mesh.clear();
-    
     if(camera.isFrameNew()) {
         flow.setPyramidScale(pyrScale);
         flow.setNumLevels(levels);
@@ -51,10 +49,8 @@ void ofApp::update() {
     }
     
     // Particleのアップデート
+    mesh.clear();
     for (int i = 0; i < particles.size(); i++){
-		
-		//particleの力をリセット
-		particles[i].resetForce();
 		
 		//オプティカルフローから、それぞれのparticleにかかる力を算出
 		ofVec2f force;
@@ -67,40 +63,39 @@ void ofApp::update() {
         
         //VBO mesh更新
         mesh.addVertex(ofVec3f(particles[i].position.x, particles[i].position.y, 0));
+        mesh.addColor(ofFloatColor(0.0, 0.5, 1.0));
         
 		//Particleの状態を更新
 		particles[i].addForce(ofVec2f(force.x, force.y));
-		particles[i].updateForce();
 		particles[i].update();
-        particles[i].throughOfWalls();
+        particles[i].throughOffWalls();
 	}
 }
 
 void ofApp::draw() {
     ofSetFullscreen(fullscreen);
     ofBackground(0);
-    
     ofSetColor(255);
+    // カメラ映像描画
     camera.draw(0,0,ofGetWidth(),ofGetHeight());
-    
+    // オプティカルフロー描画
     if (drawFlow) {
         ofSetColor(255, 0, 255);
         flow.draw(0,0,ofGetWidth(),ofGetHeight());
     }
-    
-    ofSetColor(0, 127, 255);
+    // パーティクル(VBO)描画
     mesh.draw();
-    
+    // GUI描画
     gui.draw();
 }
 
 void ofApp::resetParticlePressed(){
     particles.clear();
     for (int i = 0; i < NUM; i++){
-		Particle myParticle;
+		ParticleVec2 myParticle;
         myParticle.friction = 0.01;
         myParticle.radius = 2;
-		myParticle.setup(ofVec2f(ofRandom(ofGetWidth()), ofRandom(ofGetHeight())), ofVec2f(0, 0));
+        myParticle.position.set(ofGetWidth()), ofRandom(ofGetHeight());
 		particles.push_back(myParticle);
 	}
 }
