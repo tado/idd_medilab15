@@ -16,8 +16,8 @@ public:
     ofImage midNoiseImg;        // ノイズ画像中域
     ofImage highNoiseImg;       // ノイズ画像高域
     
-    ofxPanel gui;                   // GUI
-    ofxFloatSlider level;           // 入力レベル調整
-    ofxIntSlider resolution;        // ノイズ解像度
-    ofxFloatSlider noiseFrequency;   // ノイズ周波数
+    ofxPanel gui;                       // GUI
+    ofxFloatSlider level;               // 入力レベル調整
+    ofxIntSlider resolution;            // ノイズ解像度
+    ofxFloatSlider noiseFrequency;      // ノイズ周波数
 };
