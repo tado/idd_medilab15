@@ -11,7 +11,7 @@ void ofApp::setup() {
     // GUI
     resolution.addListener(this, &ofApp::resolutionChanged);
     gui.setup();
-    gui.add(level.setup("Input Level", 100, 0, 2000));
+    gui.add(level.setup("Input Level", 100, 0, 4000));
     gui.add(resolution.setup("Resolution", 256, 2, 1024));
     gui.add(noiseFrequency.setup("Noise Frequency", 80.0, 0.0001, 1024.0));
     gui.loadFromFile("settings.xml");
