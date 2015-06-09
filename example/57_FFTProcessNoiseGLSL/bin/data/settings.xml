@@ -1,6 +1,6 @@
 <group>
 	<Input_Level>8</Input_Level>
-	<Noise_Frequency>0.32</Noise_Frequency>
+	<Noise_Frequency>0.3</Noise_Frequency>
 <group/>
-<Noise_Speed>0.8</Noise_Speed>
+<Noise_Speed>0.45</Noise_Speed>
 </group>
